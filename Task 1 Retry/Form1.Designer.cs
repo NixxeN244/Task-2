@@ -62,7 +62,7 @@
             // Upbtn
             // 
             this.Upbtn.Font = new System.Drawing.Font("Courier New", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Upbtn.Location = new System.Drawing.Point(624, 228);
+            this.Upbtn.Location = new System.Drawing.Point(576, 229);
             this.Upbtn.Name = "Upbtn";
             this.Upbtn.Size = new System.Drawing.Size(61, 50);
             this.Upbtn.TabIndex = 3;
@@ -73,7 +73,7 @@
             // DownBtn
             // 
             this.DownBtn.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DownBtn.Location = new System.Drawing.Point(624, 284);
+            this.DownBtn.Location = new System.Drawing.Point(576, 285);
             this.DownBtn.Name = "DownBtn";
             this.DownBtn.Size = new System.Drawing.Size(61, 50);
             this.DownBtn.TabIndex = 3;
@@ -84,7 +84,7 @@
             // LeftBtn
             // 
             this.LeftBtn.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LeftBtn.Location = new System.Drawing.Point(557, 258);
+            this.LeftBtn.Location = new System.Drawing.Point(509, 259);
             this.LeftBtn.Name = "LeftBtn";
             this.LeftBtn.Size = new System.Drawing.Size(61, 50);
             this.LeftBtn.TabIndex = 3;
@@ -95,7 +95,7 @@
             // RightBtn
             // 
             this.RightBtn.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RightBtn.Location = new System.Drawing.Point(691, 258);
+            this.RightBtn.Location = new System.Drawing.Point(643, 259);
             this.RightBtn.Name = "RightBtn";
             this.RightBtn.Size = new System.Drawing.Size(61, 50);
             this.RightBtn.TabIndex = 3;
@@ -116,9 +116,9 @@
             // EnemyListbox
             // 
             this.EnemyListbox.FormattingEnabled = true;
-            this.EnemyListbox.Location = new System.Drawing.Point(557, 99);
+            this.EnemyListbox.Location = new System.Drawing.Point(509, 99);
             this.EnemyListbox.Name = "EnemyListbox";
-            this.EnemyListbox.Size = new System.Drawing.Size(202, 95);
+            this.EnemyListbox.Size = new System.Drawing.Size(258, 108);
             this.EnemyListbox.TabIndex = 4;
             // 
             // Form1

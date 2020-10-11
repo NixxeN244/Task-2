@@ -23,7 +23,9 @@ namespace Task_1_Retry
         {
             GameMapUILbl.Text = gameEngine.ToString();
             PlayerStatsLbl.Text = gameEngine.PlayerStatsString();
-            
+            EnemyListbox.DisplayMember = "enemy";
+            string trial = gameEngine.EnemyStats();
+            EnemyListbox.Items.Add(trial);
             
             
         }

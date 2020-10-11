@@ -8,3 +8,13 @@ D:\vega work\YEAR 2\Semester 2\GADE 2\POE\Task 1\Task-1-\Task 1 Retry\obj\Debug\
 D:\vega work\YEAR 2\Semester 2\GADE 2\POE\Task 1\Task-1-\Task 1 Retry\obj\Debug\Task 1 Retry.exe
 D:\vega work\YEAR 2\Semester 2\GADE 2\POE\Task 1\Task-1-\Task 1 Retry\obj\Debug\Task 1 Retry.pdb
 D:\vega work\YEAR 2\Semester 2\GADE 2\POE\Task 1\Task-1-\Task 1 Retry\obj\Debug\Task_1_Retry.Form1.resources
+D:\vega work\YEAR 2\Semester 2\GADE 2\POE\Task 2\Task-2\Task 1 Retry\bin\Debug\Task 1 Retry.exe.config
+D:\vega work\YEAR 2\Semester 2\GADE 2\POE\Task 2\Task-2\Task 1 Retry\bin\Debug\Task 1 Retry.exe
+D:\vega work\YEAR 2\Semester 2\GADE 2\POE\Task 2\Task-2\Task 1 Retry\bin\Debug\Task 1 Retry.pdb
+D:\vega work\YEAR 2\Semester 2\GADE 2\POE\Task 2\Task-2\Task 1 Retry\obj\Debug\Task 1 Retry.csprojAssemblyReference.cache
+D:\vega work\YEAR 2\Semester 2\GADE 2\POE\Task 2\Task-2\Task 1 Retry\obj\Debug\Task_1_Retry.Form1.resources
+D:\vega work\YEAR 2\Semester 2\GADE 2\POE\Task 2\Task-2\Task 1 Retry\obj\Debug\Task_1_Retry.Properties.Resources.resources
+D:\vega work\YEAR 2\Semester 2\GADE 2\POE\Task 2\Task-2\Task 1 Retry\obj\Debug\Task 1 Retry.csproj.GenerateResource.cache
+D:\vega work\YEAR 2\Semester 2\GADE 2\POE\Task 2\Task-2\Task 1 Retry\obj\Debug\Task 1 Retry.csproj.CoreCompileInputs.cache
+D:\vega work\YEAR 2\Semester 2\GADE 2\POE\Task 2\Task-2\Task 1 Retry\obj\Debug\Task 1 Retry.exe
+D:\vega work\YEAR 2\Semester 2\GADE 2\POE\Task 2\Task-2\Task 1 Retry\obj\Debug\Task 1 Retry.pdb
