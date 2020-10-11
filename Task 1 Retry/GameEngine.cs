@@ -19,11 +19,11 @@ namespace Task_1_Retry
         public GameEngine()
         {
            map = new Map(15, 15, 15, 15, 3);
-            Console.WriteLine(Map.EnemeyArray);
-
+            //Console.WriteLine(Map.EnemeyArray);
+            Console.WriteLine(GmMap.EnemeyArray[0]);
         }
 
-        public Map Map { get; set; }
+        public Map GmMap { get { return map; } set { map = value; } }
         
         public string ParseMap { get; set; }
       

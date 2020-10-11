@@ -9,14 +9,16 @@ namespace Task_1_Retry
     class Map
     {
         private Random randomNum = new Random();
-        private EmptyTile emptile;
+        private Goblin goblin;
+        private Tile[,] gameMap;
+        private Hero playerObj;
+        private Enemy[] enemies;
+        public Goblin GobliN { get { return goblin; } set { goblin = value; } }
+        public Tile[,] GameMap { get { return gameMap; } set { gameMap = value; } }
 
-        public Goblin GobliN { get; set; }
-        public Tile[,] GameMap { get; set; }
+        public Hero PlayerObj { get { return playerObj; } set { playerObj = value; } }
 
-        public Hero PlayerObj { get; set; }
-
-        public Enemy[] EnemeyArray { get ; set; }
+        public Enemy[] EnemeyArray { get { return enemies; }  set { enemies = value; } }
 
         public int MapWidth { get; set; }
         public int MapHeight { get; set; }

@@ -12,7 +12,7 @@ namespace Task_1_Retry
 {
     public partial class Form1 : Form
     {
-        GameEngine gameEngine;
+        GameEngine gameEngine = new GameEngine();
         public Form1()
         {
             InitializeComponent();
@@ -21,22 +21,9 @@ namespace Task_1_Retry
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            gameEngine = new GameEngine();
-            //Console.WriteLine(gameEngine.Map.EnemeyArray[0]);
             GameMapUILbl.Text = gameEngine.ToString();
             PlayerStatsLbl.Text = gameEngine.PlayerStatsString();
-            //EnemyListbox.DisplayMember = "enemy";
-            string trial = gameEngine.EnemyStats();
-
-
-            /* for (int i = 0; i < gameEngine.Map.EnemeyArray.Length; i++)
-             {
-                 EnemyListbox.Items.AddRange(gameEngine.Map.EnemeyArray[i]);
-             }
-             */
-
-          
-            
+            EnemyListbox.Items.AddRange(gameEngine.GmMap.EnemeyArray);
         }
 
         private void Upbtn_Click(object sender, EventArgs e)
