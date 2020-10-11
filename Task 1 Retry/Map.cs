@@ -22,16 +22,18 @@ namespace Task_1_Retry
 
         public int MapWidth { get; set; }
         public int MapHeight { get; set; }
+        public Item[] ItemArr { get; set; }
 
 
 
-        public Map(int minwidth, int maxwidth, int minheight, int maxheight, int numofenemies)
+        public Map(int minwidth, int maxwidth, int minheight, int maxheight, int numofenemies, int numofgold)
         {
             MapWidth = randomNum.Next(minwidth, maxwidth);
             MapHeight = randomNum.Next(minheight, maxheight);
             GameMap = new Tile[MapWidth, MapHeight];
             EnemeyArray = new Enemy[numofenemies];
-
+            ItemArr = new Item[numofgold];
+            #region Game Map empty tiles and Obsatcle Tiles
             for (int i = 0; i < GameMap.GetLength(0); i++)  //Creating of empty tiles so that TIles exisit within the class
             {
                 for (int k = 0; k < GameMap.GetLength(1); k++)
@@ -53,8 +55,9 @@ namespace Task_1_Retry
                 GameMap[0, i] = new ObstacleSubClass(0, i);   //assiging Obstacle to the left of the map "X"
                 GameMap[MapWidth - 1, i] = new ObstacleSubClass(MapWidth - 1, i);    //assigning Obstacles to the right of the map as "X"
             }
+            #endregion
 
-
+            #region Creation of the player object
             Create(Tile.TileType.Hero); //Method that creats/intializes the Hero object
             do
             {
@@ -63,6 +66,7 @@ namespace Task_1_Retry
             } while (GameMap[PlayerObj.Xvalue, PlayerObj.Yvalue].GetType() != typeof(EmptyTile));
 
             PlaceObject(PlayerObj);
+            #endregion
 
 
             //looping through an creating the enemies that will be stored within the Enemy Array
@@ -81,6 +85,21 @@ namespace Task_1_Retry
                 PlaceObject(goblin);
             }
 
+            for (int i = 0; i < ItemArr.Length; i++)
+            {
+                ItemArr[i] = (Item)Create(Tile.TileType.Gold);
+            }
+
+            foreach (var gold in ItemArr)
+            {
+                do
+                {
+                    gold.Xvalue = randomNum.Next(1, MapWidth - 1);
+                    gold.Yvalue = randomNum.Next(1, MapHeight - 1);
+                } while (GameMap[gold.Xvalue,gold.Yvalue].GetType()  != typeof(EmptyTile));
+                PlaceObject(gold);
+            }
+
             IntializePlayerVision();
         }
 
@@ -89,6 +108,7 @@ namespace Task_1_Retry
             for (int i = 0; i < PlayerObj.Char_vision.Length; i++)
             {
                 PlayerObj.Char_vision[i] = new EmptyTile(PlayerObj.Xvalue, PlayerObj.Yvalue);
+                
             }
         }
         public void MapUpdate()
@@ -126,24 +146,24 @@ namespace Task_1_Retry
 
         public void UpdateVision()
         {
-
+            #region Player Vision
             PlayerObj.Char_vision[0] = GameMap[PlayerObj.Xvalue, PlayerObj.Yvalue];  //the pos where the player is at that moment
             PlayerObj.Char_vision[1] = GameMap[PlayerObj.Xvalue + 1, PlayerObj.Yvalue]; //To the right of the player 
             PlayerObj.Char_vision[2] = GameMap[PlayerObj.Xvalue, PlayerObj.Yvalue + 1]; //Down from the player
             PlayerObj.Char_vision[3] = GameMap[PlayerObj.Xvalue - 1, PlayerObj.Yvalue]; //Left of the player
             PlayerObj.Char_vision[4] = GameMap[PlayerObj.Xvalue, PlayerObj.Yvalue - 1]; //top of the player
+            #endregion
 
+            //for (int k = 0; k < EnemeyArray.Length; k++)
+            //{
+            //    EnemeyArray[k].Char_vision[k] = new EmptyTile(EnemeyArray[k].Xvalue, EnemeyArray[k].Yvalue);
 
-            for (int k = 0; k < EnemeyArray.Length; k++)
-            {
-                EnemeyArray[k].Char_vision[k] = new EmptyTile(EnemeyArray[k].Xvalue, EnemeyArray[k].Yvalue);
-
-                EnemeyArray[k].Char_vision[k] = GameMap[EnemeyArray[k].Xvalue, EnemeyArray[k].Yvalue]; //the pos where the enemy is
-                EnemeyArray[k].Char_vision[k] = GameMap[EnemeyArray[k].Xvalue + 1, EnemeyArray[k].Yvalue]; // the right if the pos of the enemy
-                EnemeyArray[k].Char_vision[k] = GameMap[EnemeyArray[k].Xvalue, EnemeyArray[k].Yvalue + 1]; //down from the pos of the enemy
-                EnemeyArray[k].Char_vision[k] = GameMap[EnemeyArray[k].Xvalue - 1, EnemeyArray[k].Yvalue]; //the left of the pos of the enenmy
-                EnemeyArray[k].Char_vision[k] = GameMap[EnemeyArray[k].Xvalue, EnemeyArray[k].Yvalue - 1]; //the top of the enemy pos
-            };
+            //    EnemeyArray[k].Char_vision[k] = GameMap[EnemeyArray[k].Xvalue, EnemeyArray[k].Yvalue]; //the pos where the enemy is
+            //    EnemeyArray[k].Char_vision[k] = GameMap[EnemeyArray[k].Xvalue + 1, EnemeyArray[k].Yvalue]; // the right if the pos of the enemy
+            //    EnemeyArray[k].Char_vision[k] = GameMap[EnemeyArray[k].Xvalue, EnemeyArray[k].Yvalue + 1]; //down from the pos of the enemy
+            //    EnemeyArray[k].Char_vision[k] = GameMap[EnemeyArray[k].Xvalue - 1, EnemeyArray[k].Yvalue]; //the left of the pos of the enenmy
+            //    EnemeyArray[k].Char_vision[k] = GameMap[EnemeyArray[k].Xvalue, EnemeyArray[k].Yvalue - 1]; //the top of the enemy pos
+            //}
         }
 
 
@@ -162,7 +182,8 @@ namespace Task_1_Retry
                     //this pathway will return the enemy, which is the Goblin from the Goblin class.
                     return goblin;
                 case Tile.TileType.Gold:
-                    return null;
+                    Gold gold = new Gold(randomNum.Next(1,MapWidth-1),randomNum.Next(1,MapHeight-1));
+                    return gold;
                 case Tile.TileType.Weapon:
                     return null;
                 default:

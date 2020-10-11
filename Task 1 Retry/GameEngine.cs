@@ -13,12 +13,13 @@ namespace Task_1_Retry
         private static readonly string Goblin = "G";
         private static readonly string Empty = " ";
         private static readonly string Obstacle = "X";
+        private static readonly string gold = "$";
 
         
 
         public GameEngine()
         {
-           map = new Map(15, 15, 15, 15, 3);
+           map = new Map(15, 15, 15, 15, 6, 3);
         }
 
         public Map GmMap { get { return map; } set { map = value; } }
@@ -75,6 +76,10 @@ namespace Task_1_Retry
                     else if (map.GameMap[i,k].GetType() == typeof(Goblin))
                     {
                         returnString += Goblin;
+                    }
+                    else if (map.GameMap[i,k].GetType() == typeof(Gold))
+                    {
+                        returnString+= gold;
                     }
                     
                 }
