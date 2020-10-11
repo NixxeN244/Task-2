@@ -47,16 +47,45 @@ namespace Task_1_Retry
                     return Movement.No_movement;
                     
                 case Movement.Up:
-                    return Movement.Up;
+                    if (char_vision[4].GetType() == typeof(EmptyTile))  //Goblin will move up if there is an wmpty slot
+                    {
+                        return Movement.Up;
+                    }
+                    else
+                    {
+                        return Movement.No_movement;
+                    }
+                    
                     
                 case Movement.Down:
-                    return Movement.Down;
+                    if (char_vision[2].GetType() ==typeof(EmptyTile))   //goblin will down if there is an empty tile
+                    {
+                        return Movement.Down;
+                    }
+                    else
+                    {
+                        return Movement.No_movement;
+                    }
                     
                 case Movement.Left:
-                    return Movement.Left;
+                    if (char_vision[3].GetType() == typeof(EmptyTile)) // Goblin will move left if there is an empty tile
+                    {
+                        return Movement.Left;
+                    }
+                    else
+                    {
+                        return Movement.No_movement;
+                    }
                     
                 case Movement.Right:
-                    return Movement.Right;
+                    if (char_vision[1].GetType() == typeof(EmptyTile))  //Goblin will move right if there is an empty tile
+                    {
+                        return Movement.Right;
+                    }
+                    else
+                    {
+                        return Movement.No_movement;
+                    }
                     
                 default:
                     return Movement.No_movement;

@@ -80,7 +80,7 @@ namespace Task_1_Retry
             }
         }
 
-        private int DistanceTo(Character target)
+        public int DistanceTo(Character target)
         {
             int distance = (this.Xvalue - target.Xvalue) + (this.Yvalue - target.Yvalue);   //this returns a value that is between the character and the target.
             /*example:

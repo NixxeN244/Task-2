@@ -17,14 +17,14 @@ namespace Task_1_Retry
             Yvalue = Y;
         }
 
-        public override Movement ReturnMove(Movement move )
+        public override Movement ReturnMove(Movement move)
         {
             switch (move)
             {
                 case Movement.No_movement:
 
                     return Movement.No_movement;
-                    
+
                 case Movement.Up:
                     if (char_vision[4].GetType() == typeof(EmptyTile))
                     {
@@ -34,8 +34,8 @@ namespace Task_1_Retry
                     {
                         return Movement.No_movement;
                     }
-                   
-                    
+
+
                 case Movement.Down:
                     if (char_vision[2].GetType() == typeof(EmptyTile))
                     {
@@ -45,7 +45,7 @@ namespace Task_1_Retry
                     {
                         return Movement.No_movement;
                     }
-                   
+
                 case Movement.Left:
                     if (char_vision[3].GetType() == typeof(EmptyTile))
                     {
@@ -55,7 +55,7 @@ namespace Task_1_Retry
                     {
                         return Movement.No_movement;
                     }
-                   
+
                 case Movement.Right:
                     if (char_vision[1].GetType() == typeof(EmptyTile))
                     {
@@ -65,7 +65,7 @@ namespace Task_1_Retry
                     {
                         return Movement.No_movement;
                     }
-                  
+
                 default:
                     return Movement.No_movement;
             }
@@ -75,7 +75,7 @@ namespace Task_1_Retry
         public override string ToString()
         {
             return string.Format("Player Stats: \n" + "HP: " + this.HP + "/ " + this.Max_HP + "\n" +
-                                    "Damage: " + this.Damage +  "\n" + "[" + this.Xvalue + "," + this.Yvalue + "]");
+                                    "Damage: " + this.Damage + "\n" + "[" + this.Xvalue + "," + this.Yvalue + "]");
         }
     }
 }
