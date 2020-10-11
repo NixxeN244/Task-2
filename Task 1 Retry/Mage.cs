@@ -20,16 +20,35 @@ namespace Task_1_Retry
 
         public override bool CheckRange(Character target)
         {
-            if (Math.Abs(target.Yvalue- Yvalue) == 1 && target.Xvalue == Xvalue ) //first postion, which 1 unit to the left of the Mage
-            {
-                return true;
-                
-            }
-            else if (Math.Abs(target.Yvalue - Yvalue) == 1 && Math.Abs(target.Xvalue - Xvalue) ==1) //second position, which is 1 unit left and 1 unit up fo the mage
+            if (target.Yvalue == Yvalue -1 && target.Xvalue == Xvalue ) //first postion, which 1 unit to the left of the Mage
             {
                 return true;
             }
-            else if (target.Yvalue == Yvalue && Math.Abs(target.Xvalue - Xvalue) ==1)
+            else if (target.Yvalue == Yvalue - 1 && target.Xvalue == Xvalue -1) //second position, which is 1 unit left and 1 unit up fo the mage
+            {
+                return true;
+            }
+            else if (target.Yvalue == Yvalue  && target.Xvalue == Xvalue -1) //third position, which is 1 unit up from the mage
+            {
+                return true;
+            }
+            else if (target.Yvalue == Yvalue -1 && target.Xvalue == Xvalue +1) // fourth position, which is 1 unit up and 1 unit right from the mage
+            {
+                return true;
+            }
+            else if (target.Yvalue == Yvalue +1 && target.Xvalue == Xvalue) //fifth position, which is 1 unit to the right of the mage
+            {
+                return true;
+            }
+            else if (target.Yvalue == Yvalue +1 && target.Xvalue == Xvalue +1) // sixth position, which is 1 unit down fand 1 unit right of the mage
+            {
+                return true;
+            }
+            else if (target.Yvalue == Yvalue && target.Xvalue  == Xvalue +1) // seventh position, which is 1 unit down from the mage 
+            {
+                return true;
+            }
+            else if (target.Yvalue == Yvalue +1 && target.Xvalue == Xvalue -1) // eighth position. which is 1 unit doen and 1 unit left of the mage
             {
                 return true;
             }
@@ -37,6 +56,7 @@ namespace Task_1_Retry
             {
                 return false;
             }
+        
             
         }
     }
