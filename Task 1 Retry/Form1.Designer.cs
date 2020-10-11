@@ -35,7 +35,7 @@
             this.LeftBtn = new System.Windows.Forms.Button();
             this.RightBtn = new System.Windows.Forms.Button();
             this.AttackBtn = new System.Windows.Forms.Button();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.EnemyListbox = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // GameMapUILbl
@@ -113,20 +113,20 @@
             this.AttackBtn.UseVisualStyleBackColor = true;
             this.AttackBtn.Click += new System.EventHandler(this.AttackBtn_Click);
             // 
-            // listBox1
+            // EnemyListbox
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(557, 99);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(202, 95);
-            this.listBox1.TabIndex = 4;
+            this.EnemyListbox.FormattingEnabled = true;
+            this.EnemyListbox.Location = new System.Drawing.Point(557, 99);
+            this.EnemyListbox.Name = "EnemyListbox";
+            this.EnemyListbox.Size = new System.Drawing.Size(202, 95);
+            this.EnemyListbox.TabIndex = 4;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.EnemyListbox);
             this.Controls.Add(this.RightBtn);
             this.Controls.Add(this.LeftBtn);
             this.Controls.Add(this.AttackBtn);
@@ -151,7 +151,7 @@
         private System.Windows.Forms.Button LeftBtn;
         private System.Windows.Forms.Button RightBtn;
         private System.Windows.Forms.Button AttackBtn;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox EnemyListbox;
     }
 }
 

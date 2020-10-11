@@ -23,7 +23,7 @@ namespace Task_1_Retry
         {
             GameMapUILbl.Text = gameEngine.ToString();
             PlayerStatsLbl.Text = gameEngine.PlayerStatsString();
-            listBox1.Text = gameEngine.EnemyStats();
+            
             
             
         }

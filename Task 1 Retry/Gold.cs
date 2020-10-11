@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Task_1_Retry
 {
-    class Gold : Item
+    class Gold : Item   //class that the player can pick up
     {
 
         private int goldAmount;
         private Random randomAmount = new Random();
-        public Gold(int X, int Y) : base(X, Y)
+        public Gold(int X, int Y) : base(X, Y)  //gold constructor 
         {
-            GoldAmount = randomAmount.Next(1, 6);
+            GoldAmount = randomAmount.Next(1, 6);   //randomizes the gold amount by 1 to 5
         }
 
         public int GoldAmount
@@ -22,9 +22,9 @@ namespace Task_1_Retry
             set { goldAmount = value; }
         }
 
-        public override string ToString()
+        public override string ToString() //returns the type of item, in this case, it will be "Gold" item
         {
-            throw new NotImplementedException();
+            return Convert.ToString(GetType());
         }
     }
 }
