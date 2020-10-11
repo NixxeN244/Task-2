@@ -19,7 +19,7 @@ namespace Task_1_Retry
         public GameEngine()
         {
            map = new Map(15, 15, 15, 15, 3);
-            
+            Console.WriteLine(Map.EnemeyArray);
 
         }
 

@@ -26,7 +26,7 @@ namespace Task_1_Retry
 
         public override string ToString()   //override method that returns a string that shows the enemy type, it X and Y values as well as it's damage
         {
-            return string.Format(GetType() + " at " + "[" + this.Xvalue + "," + this.Yvalue + "]" + " (with " + this.Damage + " Damge)");
+            return string.Format(this.GetType().Name + " at " + "[" + this.Xvalue + "," + this.Yvalue + "]" + " (with " + this.Damage + " Damge)");
         }
     }
 

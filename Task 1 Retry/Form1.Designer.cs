@@ -120,6 +120,7 @@
             this.EnemyListbox.Name = "EnemyListbox";
             this.EnemyListbox.Size = new System.Drawing.Size(258, 108);
             this.EnemyListbox.TabIndex = 4;
+            this.EnemyListbox.SelectedIndexChanged += new System.EventHandler(this.EnemyListbox_SelectedIndexChanged);
             // 
             // Form1
             // 

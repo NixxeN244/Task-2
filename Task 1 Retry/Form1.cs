@@ -12,7 +12,7 @@ namespace Task_1_Retry
 {
     public partial class Form1 : Form
     {
-        GameEngine gameEngine = new GameEngine();
+        GameEngine gameEngine;
         public Form1()
         {
             InitializeComponent();
@@ -21,12 +21,21 @@ namespace Task_1_Retry
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            gameEngine = new GameEngine();
+            //Console.WriteLine(gameEngine.Map.EnemeyArray[0]);
             GameMapUILbl.Text = gameEngine.ToString();
             PlayerStatsLbl.Text = gameEngine.PlayerStatsString();
-            EnemyListbox.DisplayMember = "enemy";
+            //EnemyListbox.DisplayMember = "enemy";
             string trial = gameEngine.EnemyStats();
-            EnemyListbox.Items.Add(trial);
-            
+
+
+            /* for (int i = 0; i < gameEngine.Map.EnemeyArray.Length; i++)
+             {
+                 EnemyListbox.Items.AddRange(gameEngine.Map.EnemeyArray[i]);
+             }
+             */
+
+          
             
         }
 
@@ -35,7 +44,8 @@ namespace Task_1_Retry
             gameEngine.MovePlayer(Character.Movement.Up);
             GameMapUILbl.Text = gameEngine.ToString();
             PlayerStatsLbl.Text = gameEngine.PlayerStatsString();
-
+            
+           // EnemyListbox.Items.Add(gameEngine.Map.EnemeyArray[0]);
         }
 
         private void RightBtn_Click(object sender, EventArgs e)
@@ -62,6 +72,11 @@ namespace Task_1_Retry
         private void AttackBtn_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void EnemyListbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

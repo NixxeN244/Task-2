@@ -20,10 +20,20 @@ namespace Task_1_Retry
 
         public override bool CheckRange(Character target)
         {
-            if (Math.Abs()
+            if (Math.Abs(target.Yvalue- Yvalue) == 1 && target.Xvalue == Xvalue ) //first postion, which 1 unit to the left of the Mage
             {
-
+                return true;
+                
             }
+            else if (Math.Abs(target.Yvalue - Yvalue) == 1 && Math.Abs(target.Xvalue - Xvalue) ==1) //second position, which is 1 unit left and 1 unit up fo the mage
+            {
+                return true;
+            }
+            else if (target.Yvalue == Yvalue && Math.Abs(target.Xvalue - Xvalue) ==1)
+            {
+                return true;
+            }
+            
         }
     }
 }

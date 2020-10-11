@@ -11,12 +11,12 @@ namespace Task_1_Retry
         private Random randomNum = new Random();
         private EmptyTile emptile;
 
-        public Goblin Goblin { get; set; }
+        public Goblin GobliN { get; set; }
         public Tile[,] GameMap { get; set; }
 
         public Hero PlayerObj { get; set; }
 
-        public Enemy[] EnemeyArray { get; set; }
+        public Enemy[] EnemeyArray { get ; set; }
 
         public int MapWidth { get; set; }
         public int MapHeight { get; set; }
@@ -67,15 +67,16 @@ namespace Task_1_Retry
             for (int i = 0; i < EnemeyArray.Length; i++)
             {
                 EnemeyArray[i] = (Enemy)Create(Tile.TileType.Enemey);
-            }
-            foreach (var Goblin in EnemeyArray)
+                //Console.WriteLine(EnemeyArray[i]);
+            } 
+            foreach (var goblin in EnemeyArray)
             {
                 do
                 {
-                    Goblin.Xvalue = randomNum.Next(1, MapWidth - 1);
-                    Goblin.Yvalue = randomNum.Next(1, MapHeight - 1);
-                } while (GameMap[Goblin.Xvalue, Goblin.Yvalue].GetType() != typeof(EmptyTile));
-                PlaceObject(Goblin);
+                    goblin.Xvalue = randomNum.Next(1, MapWidth - 1);
+                    goblin.Yvalue = randomNum.Next(1, MapHeight - 1);
+                } while (GameMap[goblin.Xvalue, goblin.Yvalue].GetType() != typeof(EmptyTile));
+                PlaceObject(goblin);
             }
 
             IntializePlayerVision();
@@ -155,9 +156,9 @@ namespace Task_1_Retry
                 //This will return the Hero object. (which would be the player).
 
                 case Tile.TileType.Enemey:
-                    Goblin = new Goblin(randomNum.Next(1, MapWidth - 1), randomNum.Next(1, MapHeight - 1));
+                    Goblin goblin = new Goblin(randomNum.Next(1, MapWidth - 1), randomNum.Next(1, MapHeight - 1));
                     //this pathway will return the enemy, which is the Goblin from the Goblin class.
-                    return Goblin;
+                    return goblin;
                 case Tile.TileType.Gold:
                     return null;
                 case Tile.TileType.Weapon:
