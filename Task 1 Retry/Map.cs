@@ -132,8 +132,16 @@ namespace Task_1_Retry
             for (int i = 0; i < PlayerObj.Char_vision.Length; i++)
             {
                 PlayerObj.Char_vision[i] = new EmptyTile(PlayerObj.Xvalue, PlayerObj.Yvalue);
-
             }
+            for (int d = 0; d < EnemeyArray.ToArray().Length; d++)
+            {
+                EnemeyArray[d].Char_vision[0] = new EmptyTile(EnemeyArray[d].Xvalue, EnemeyArray[d].Yvalue);
+                EnemeyArray[d].Char_vision[1] = new EmptyTile(EnemeyArray[d].Xvalue, EnemeyArray[d].Yvalue);
+                EnemeyArray[d].Char_vision[2] = new EmptyTile(EnemeyArray[d].Xvalue, EnemeyArray[d].Yvalue);
+                EnemeyArray[d].Char_vision[3] = new EmptyTile(EnemeyArray[d].Xvalue, EnemeyArray[d].Yvalue);
+                EnemeyArray[d].Char_vision[4] = new EmptyTile(EnemeyArray[d].Xvalue, EnemeyArray[d].Yvalue);
+            }
+
         }
         public void MapUpdate()
         {
@@ -159,7 +167,7 @@ namespace Task_1_Retry
             }
 
 
-            for (int i = 0; i < EnemeyArray.Length; i++)
+            for (int i = 0; i < EnemeyArray.ToArray().Length; i++)
             {
                 GameMap[EnemeyArray[i].Xvalue, EnemeyArray[i].Yvalue] = EnemeyArray[i];
             }
@@ -168,7 +176,7 @@ namespace Task_1_Retry
             {
                 GameMap[gold.Xvalue, gold.Yvalue] = gold;
             }
-          
+
             GameMap[PlayerObj.Xvalue, PlayerObj.Yvalue] = PlayerObj;
         }
 
@@ -176,22 +184,18 @@ namespace Task_1_Retry
         {
             #region Player Vision
             PlayerObj.Char_vision[0] = GameMap[PlayerObj.Xvalue, PlayerObj.Yvalue];  //the pos where the player is at that moment
-            PlayerObj.Char_vision[1] = GameMap[PlayerObj.Xvalue + 1, PlayerObj.Yvalue]; //To the right of the player 
-            PlayerObj.Char_vision[2] = GameMap[PlayerObj.Xvalue, PlayerObj.Yvalue + 1]; //Down from the player
-            PlayerObj.Char_vision[3] = GameMap[PlayerObj.Xvalue - 1, PlayerObj.Yvalue]; //Left of the player
-            PlayerObj.Char_vision[4] = GameMap[PlayerObj.Xvalue, PlayerObj.Yvalue - 1]; //top of the player
+            PlayerObj.Char_vision[1] = GameMap[PlayerObj.Xvalue, PlayerObj.Yvalue + 1]; //To the right of the player 
+            PlayerObj.Char_vision[2] = GameMap[PlayerObj.Xvalue + 1, PlayerObj.Yvalue]; //Down from the player
+            PlayerObj.Char_vision[3] = GameMap[PlayerObj.Xvalue, PlayerObj.Yvalue - 1]; //Left of the player
+            PlayerObj.Char_vision[4] = GameMap[PlayerObj.Xvalue - 1, PlayerObj.Yvalue]; //top of the player
             #endregion
+            for (int j = 0; j < EnemeyArray.ToArray().Length; j++)
+            {
+                EnemeyArray[j].Char_vision[0] = GameMap[EnemeyArray[j].Xvalue, EnemeyArray[j].Yvalue];
+                EnemeyArray[j].Char_vision[1] = GameMap[EnemeyArray[j].Xvalue, EnemeyArray[j].Yvalue + 1];
+                EnemeyArray[j].Char_vision[2] = 
+            }
 
-            //for (int k = 0; k < EnemeyArray.Length; k++)
-            //{
-            //    EnemeyArray[k].Char_vision[k] = new EmptyTile(EnemeyArray[k].Xvalue, EnemeyArray[k].Yvalue);
-
-            //    EnemeyArray[k].Char_vision[k] = GameMap[EnemeyArray[k].Xvalue, EnemeyArray[k].Yvalue]; //the pos where the enemy is
-            //    EnemeyArray[k].Char_vision[k] = GameMap[EnemeyArray[k].Xvalue + 1, EnemeyArray[k].Yvalue]; // the right if the pos of the enemy
-            //    EnemeyArray[k].Char_vision[k] = GameMap[EnemeyArray[k].Xvalue, EnemeyArray[k].Yvalue + 1]; //down from the pos of the enemy
-            //    EnemeyArray[k].Char_vision[k] = GameMap[EnemeyArray[k].Xvalue - 1, EnemeyArray[k].Yvalue]; //the left of the pos of the enenmy
-            //    EnemeyArray[k].Char_vision[k] = GameMap[EnemeyArray[k].Xvalue, EnemeyArray[k].Yvalue - 1]; //the top of the enemy pos
-            //}
         }
 
 
@@ -232,20 +236,20 @@ namespace Task_1_Retry
         {
             Item localitem;
             localitem = null;
-            foreach (var gold in ItemList.ToList())
+            foreach (var gold in ItemList.ToList()) //creates a new List from the references List 
             {
-                if (gold.Xvalue ==x && gold.Yvalue == y)
+                if (gold.Xvalue == x && gold.Yvalue == y)
                 {
-                    localitem = gold;
+                    localitem = gold;   //setting the local variable to the gold position on the map 
 
                     Console.WriteLine(ItemList.IndexOf(localitem));
-                    int w = Convert.ToInt32( Console.ReadLine());
+                    int w = Convert.ToInt32(Console.ReadLine());
 
-                    ItemList.RemoveAt(w);
+                    ItemList.RemoveAt(w);   //removes the gold at the location of the player 
                 }
             }
             return localitem;
-          
+
         }
 
     }

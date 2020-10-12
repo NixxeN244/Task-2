@@ -29,6 +29,7 @@ namespace Task_1_Retry
         private void Upbtn_Click(object sender, EventArgs e)
         {
             gameEngine.MovePlayer(Character.Movement.Up);
+            gameEngine.EnemeyMove();
             GameMapUILbl.Text = gameEngine.ToString();
             PlayerStatsLbl.Text = gameEngine.PlayerStatsString();
             
@@ -38,6 +39,7 @@ namespace Task_1_Retry
         private void RightBtn_Click(object sender, EventArgs e)
         {
             gameEngine.MovePlayer(Character.Movement.Right);
+            gameEngine.EnemeyMove();
             GameMapUILbl.Text = gameEngine.ToString();
             PlayerStatsLbl.Text = gameEngine.PlayerStatsString();
         }
@@ -45,6 +47,7 @@ namespace Task_1_Retry
         private void DownBtn_Click(object sender, EventArgs e)
         {
             gameEngine.MovePlayer(Character.Movement.Down);
+            gameEngine.EnemeyMove();
             GameMapUILbl.Text = gameEngine.ToString();
             PlayerStatsLbl.Text = gameEngine.PlayerStatsString();
         }
@@ -52,6 +55,7 @@ namespace Task_1_Retry
         private void LeftBtn_Click(object sender, EventArgs e)
         {
             gameEngine.MovePlayer(Character.Movement.Left);
+            gameEngine.EnemeyMove();
             GameMapUILbl.Text = gameEngine.ToString();
             PlayerStatsLbl.Text = gameEngine.PlayerStatsString();
         }

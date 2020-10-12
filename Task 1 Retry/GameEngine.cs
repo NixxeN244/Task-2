@@ -104,7 +104,72 @@ namespace Task_1_Retry
             }
             return returnString;
         }
-
+        public void EnemeyMove()
+        {
+            Character.Movement move;
+            Random rnd = new Random();
+            foreach (var goblin in map.EnemeyArray.ToArray())
+            {
+                int n = rnd.Next(1, 5);
+              
+                #region Goblin Moving Up
+                if (n==1)
+                {
+                    move = Character.Movement.Up;
+                    if (move== goblin.ReturnMove(move))
+                    {
+                        goblin.Move(Character.Movement.Up);
+                    }
+                    else
+                    {
+                        goblin.Move(Character.Movement.No_movement);
+                    }
+                }
+                #endregion
+                #region Goblin Moving Down
+                else if (n==2)
+                {
+                    move = Character.Movement.Down;
+                    if (move == goblin.ReturnMove(move))
+                    {
+                        goblin.Move(Character.Movement.Down);
+                    }
+                    else
+                    {
+                        goblin.Move(Character.Movement.No_movement);
+                    }
+                }
+                #endregion
+                #region Goblin Moving Left
+                else if (n==3)
+                {
+                    move = Character.Movement.Left;
+                    if (move == goblin.ReturnMove(move))
+                    {
+                        goblin.Move(Character.Movement.Left);
+                    }
+                    else
+                    {
+                        goblin.Move(Character.Movement.No_movement);
+                    }
+                }
+                #endregion
+                #region Goblin Moving Right
+                else if (n==4)
+                {
+                    move = Character.Movement.Right;
+                    if (move == goblin.ReturnMove(move))
+                    {
+                        goblin.Move(Character.Movement.Right);
+                    }
+                    else
+                    {
+                        goblin.Move(Character.Movement.No_movement);
+                    }
+                }
+                #endregion
+            }
+        }
 
 
         public string EnemyStats()
