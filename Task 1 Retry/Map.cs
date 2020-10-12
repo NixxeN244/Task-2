@@ -189,11 +189,13 @@ namespace Task_1_Retry
             PlayerObj.Char_vision[3] = GameMap[PlayerObj.Xvalue, PlayerObj.Yvalue - 1]; //Left of the player
             PlayerObj.Char_vision[4] = GameMap[PlayerObj.Xvalue - 1, PlayerObj.Yvalue]; //top of the player
             #endregion
-            for (int j = 0; j < EnemeyArray.ToArray().Length; j++)
+            for (int j = 0; j < EnemeyArray.Length; j++)
             {
-                EnemeyArray[j].Char_vision[0] = GameMap[EnemeyArray[j].Xvalue, EnemeyArray[j].Yvalue];
-                EnemeyArray[j].Char_vision[1] = GameMap[EnemeyArray[j].Xvalue, EnemeyArray[j].Yvalue + 1];
-                EnemeyArray[j].Char_vision[2] = 
+                EnemeyArray[j].Char_vision[0] = GameMap[EnemeyArray[j].Xvalue, EnemeyArray[j].Yvalue]; //enemies current position 
+                EnemeyArray[j].Char_vision[1] = GameMap[EnemeyArray[j].Xvalue, EnemeyArray[j].Yvalue + 1]; //right of the enmeis posiotn 
+                EnemeyArray[j].Char_vision[2] = GameMap[EnemeyArray[j].Xvalue+1, EnemeyArray[j].Yvalue];  //down from the enemy
+                EnemeyArray[j].Char_vision[3] = GameMap[EnemeyArray[j].Xvalue, EnemeyArray[j].Yvalue-1]; //left of the enemy
+                EnemeyArray[j].Char_vision[4] = GameMap[EnemeyArray[j].Xvalue - 1, EnemeyArray[j].Yvalue]; // top of the enemy
             }
 
         }

@@ -106,6 +106,7 @@ namespace Task_1_Retry
         }
         public void EnemeyMove()
         {
+            map.UpdateVision();
             Character.Movement move;
             Random rnd = new Random();
             foreach (var goblin in map.EnemeyArray.ToArray())
