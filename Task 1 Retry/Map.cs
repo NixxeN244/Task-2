@@ -18,7 +18,7 @@ namespace Task_1_Retry
 
         public Hero PlayerObj { get { return playerObj; } set { playerObj = value; } }
 
-        public Enemy[] EnemeyArray { get { return enemies; }  set { enemies = value; } }
+        public Enemy[] EnemeyArray { get { return enemies; } set { enemies = value; } }
 
         public int MapWidth { get; set; }
         public int MapHeight { get; set; }
@@ -79,11 +79,11 @@ namespace Task_1_Retry
                 {
                     EnemeyArray[i] = (Enemy)Create(Tile.TileType.Goblin);
                 }
-                else if (num==1)
+                else if (num == 1)
                 {
                     EnemeyArray[i] = (Enemy)Create(Tile.TileType.Mage);
                 }
-            } 
+            }
 
             foreach (var goblin in EnemeyArray)
             {
@@ -129,7 +129,7 @@ namespace Task_1_Retry
             for (int i = 0; i < PlayerObj.Char_vision.Length; i++)
             {
                 PlayerObj.Char_vision[i] = new EmptyTile(PlayerObj.Xvalue, PlayerObj.Yvalue);
-                
+
             }
         }
         public void MapUpdate()
@@ -160,7 +160,7 @@ namespace Task_1_Retry
             {
                 GameMap[EnemeyArray[i].Xvalue, EnemeyArray[i].Yvalue] = EnemeyArray[i];
             }
-         
+
             GameMap[PlayerObj.Xvalue, PlayerObj.Yvalue] = PlayerObj;
 
             for (int a = 0; a < ItemArr.Length; a++)
@@ -210,7 +210,7 @@ namespace Task_1_Retry
                     Mage mage = new Mage(randomNum.Next(1, MapWidth - 1), randomNum.Next(1, MapHeight - 1));
                     return mage;
                 case Tile.TileType.Gold:
-                    Gold gold = new Gold(randomNum.Next(1,MapWidth-1),randomNum.Next(1,MapHeight-1));
+                    Gold gold = new Gold(randomNum.Next(1, MapWidth - 1), randomNum.Next(1, MapHeight - 1));
                     return gold;
                 case Tile.TileType.Weapon:
                     return null;
@@ -224,5 +224,22 @@ namespace Task_1_Retry
             GameMap[obj.Xvalue, obj.Yvalue] = obj;
 
         }
+
+        public Item GetItemAtPos(int x, int y)
+        {
+            Item localitem;
+            localitem = null;
+            for (int a = 0; a < ItemArr.Length; a++)
+            {
+                if (ItemArr[a].Xvalue == x && ItemArr[a].Yvalue ==y)    //check to see if the item is at that location 
+                {
+                    localitem = ItemArr[a];
+                    ItemArr[a] = null;  //makes the item in that position null in the array
+                }
+            }
+            return localitem; // returns the item if true or returns null if there is no item found at that location 
+
+        }
+
     }
 }

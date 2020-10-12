@@ -12,13 +12,18 @@ namespace Task_1_Retry
         protected int max_HP; //the field that contains the Character's max Heath.
         protected int damage;
         protected Tile[] char_vision = new Tile[5];
-
+        protected int gold_purse;
 
         public Character(int X, int Y, char symbol) : base(X, Y)
         {
 
         }
 
+        public int Gold_Purse
+        {
+            get { return gold_purse; }
+            set { gold_purse = value; }
+        }
         public int HP
         {
             get { return hP; }
@@ -123,6 +128,26 @@ namespace Task_1_Retry
             }
         }
 
+        public void PickupItem (Item i)
+        {
+            if (i == null)
+            {
+                Gold_Purse = Gold_Purse;
+            }
+            else
+            {
+                if (i.GetType() == typeof(Gold))
+                {
+                    Gold b = new Gold(i.Xvalue, i.Yvalue);
+                    Gold_Purse += b.GoldAmount;
+                }
+                else if (i.GetType() == null)
+                {
+
+                }
+            }
+           
+        }
         public abstract Movement ReturnMove(Movement move = 0);
 
         public abstract override string ToString();

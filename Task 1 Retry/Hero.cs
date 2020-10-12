@@ -26,7 +26,7 @@ namespace Task_1_Retry
                     return Movement.No_movement;
 
                 case Movement.Up:
-                    if (char_vision[4].GetType() == typeof(EmptyTile))
+                    if (char_vision[4].GetType() == typeof(EmptyTile) | char_vision[4].GetType() == typeof(Item))
                     {
                         return Movement.Up;
                     }
@@ -37,7 +37,7 @@ namespace Task_1_Retry
 
 
                 case Movement.Down:
-                    if (char_vision[2].GetType() == typeof(EmptyTile))
+                    if (char_vision[2].GetType() == typeof(EmptyTile) | char_vision[2].GetType() == typeof(Item))
                     {
                         return Movement.Down;
                     }
@@ -47,7 +47,7 @@ namespace Task_1_Retry
                     }
 
                 case Movement.Left:
-                    if (char_vision[3].GetType() == typeof(EmptyTile))
+                    if (char_vision[3].GetType() == typeof(EmptyTile) | char_vision[3].GetType() == typeof(Item))
                     {
                         return Movement.Left;
                     }
@@ -57,7 +57,7 @@ namespace Task_1_Retry
                     }
 
                 case Movement.Right:
-                    if (char_vision[1].GetType() == typeof(EmptyTile))
+                    if (char_vision[1].GetType() == typeof(EmptyTile) | char_vision[1].GetType()==typeof(Item))
                     {
                         return Movement.Right;
                     }
@@ -75,7 +75,7 @@ namespace Task_1_Retry
         public override string ToString()
         {
             return string.Format("Player Stats: \n" + "HP: " + this.HP + "/ " + this.Max_HP + "\n" +
-                                    "Damage: " + this.Damage + "\n" + "[" + this.Xvalue + "," + this.Yvalue + "]");
+                                    "Damage: " + this.Damage + "\n" + "[" + this.Xvalue + "," + this.Yvalue + "]" + "\n" + "Gold: " + this.Gold_Purse);
         }
     }
 }

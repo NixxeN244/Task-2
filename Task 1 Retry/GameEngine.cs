@@ -34,21 +34,29 @@ namespace Task_1_Retry
             if (map.PlayerObj.ReturnMove(move) == Character.Movement.Up)
             {
                 map.PlayerObj.Move(move);
+                map.PlayerObj.PickupItem(map.GetItemAtPos(map.PlayerObj.Xvalue-1, map.PlayerObj.Yvalue));
+                //Console.WriteLine(map.PlayerObj.ReturnMove(move));
                 map.MapUpdate();
             }
             else if (map.PlayerObj.ReturnMove(move) == Character.Movement.Down)
             {
                 map.PlayerObj.Move(move);
+                map.PlayerObj.PickupItem(map.GetItemAtPos(map.PlayerObj.Xvalue+1, map.PlayerObj.Yvalue));
+              //  Console.WriteLine(map.PlayerObj.ReturnMove(move));
                 map.MapUpdate();
             }
             else if (map.PlayerObj.ReturnMove(move) == Character.Movement.Left)
             {
                 map.PlayerObj.Move(move);
+                map.PlayerObj.PickupItem(map.GetItemAtPos(map.PlayerObj.Xvalue, map.PlayerObj.Yvalue-1));
+              //  Console.WriteLine(map.PlayerObj.ReturnMove(move));
                 map.MapUpdate();
             }
             else if (map.PlayerObj.ReturnMove(move) == Character.Movement.Right)
             {
                 map.PlayerObj.Move(move);
+                map.PlayerObj.PickupItem(map.GetItemAtPos(map.PlayerObj.Xvalue, map.PlayerObj.Yvalue+1));
+             //   Console.WriteLine(map.PlayerObj.ReturnMove(move));
                 map.MapUpdate();
             }
 
