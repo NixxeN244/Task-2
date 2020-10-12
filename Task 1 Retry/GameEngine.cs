@@ -14,12 +14,13 @@ namespace Task_1_Retry
         private static readonly string Empty = " ";
         private static readonly string Obstacle = "X";
         private static readonly string gold = "$";
+        private static readonly string mage = "M";
 
         
 
         public GameEngine()
         {
-           map = new Map(15, 15, 15, 15, 6, 3);
+           map = new Map(15, 15, 15, 15, 4, 3);
         }
 
         public Map GmMap { get { return map; } set { map = value; } }
@@ -80,6 +81,10 @@ namespace Task_1_Retry
                     else if (map.GameMap[i,k].GetType() == typeof(Gold))
                     {
                         returnString+= gold;
+                    }
+                    else if (map.GameMap[i,k].GetType() == typeof(Mage))
+                    {
+                        returnString += mage;
                     }
                     
                 }

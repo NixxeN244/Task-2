@@ -26,7 +26,8 @@ namespace Task_1_Retry
         public enum TileType    //enums members are denoted as an int "type". starting from 0 and increasing by 1 for each member. Ghost commit for the Tile enum type
         {
             Hero,   // TileType.Hero = 0. meaning this int value member will be 0.
-            Enemey, //TileType.Enemy = 1. meaning this int value member will be 1
+            Goblin, //TileType.Enemy = 1. meaning this int value member will be 1
+            Mage,
             Gold,   //TileType.Gold = 2.
             Weapon  //TileType.Weapon =3. 
         }

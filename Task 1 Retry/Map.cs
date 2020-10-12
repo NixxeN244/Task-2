@@ -57,7 +57,7 @@ namespace Task_1_Retry
             }
             #endregion
 
-            #region Creation of the player object
+            #region Creation of the player object and placing it
             Create(Tile.TileType.Hero); //Method that creats/intializes the Hero object
             do
             {
@@ -69,22 +69,43 @@ namespace Task_1_Retry
             #endregion
 
 
+            #region Creation of the Enemy array and placing them 
             //looping through an creating the enemies that will be stored within the Enemy Array
             for (int i = 0; i < EnemeyArray.Length; i++)
             {
-                EnemeyArray[i] = (Enemy)Create(Tile.TileType.Enemey);
-                //Console.WriteLine(EnemeyArray[i]);
+                int num;
+                num = randomNum.Next(0, 2);
+                if (num == 0)
+                {
+                    EnemeyArray[i] = (Enemy)Create(Tile.TileType.Goblin);
+                }
+                else if (num==1)
+                {
+                    EnemeyArray[i] = (Enemy)Create(Tile.TileType.Mage);
+                }
             } 
+
             foreach (var goblin in EnemeyArray)
             {
-                do
+                while (GameMap[goblin.Xvalue, goblin.Yvalue].GetType() != typeof(EmptyTile))
                 {
                     goblin.Xvalue = randomNum.Next(1, MapWidth - 1);
                     goblin.Yvalue = randomNum.Next(1, MapHeight - 1);
-                } while (GameMap[goblin.Xvalue, goblin.Yvalue].GetType() != typeof(EmptyTile));
+                }
                 PlaceObject(goblin);
             }
 
+            foreach (var mage in EnemeyArray)
+            {
+                while (GameMap[mage.Xvalue, mage.Yvalue].GetType() != typeof(EmptyTile))
+                {
+                    mage.Xvalue = randomNum.Next(1, MapWidth - 1);
+                    mage.Yvalue = randomNum.Next(1, MapHeight - 1);
+                }
+                PlaceObject(mage);
+            }
+            #endregion
+            #region Creation of the gold in Items Array and placing them 
             for (int i = 0; i < ItemArr.Length; i++)
             {
                 ItemArr[i] = (Item)Create(Tile.TileType.Gold);
@@ -92,14 +113,14 @@ namespace Task_1_Retry
 
             foreach (var gold in ItemArr)
             {
-                do
+                while (GameMap[gold.Xvalue, gold.Yvalue].GetType() != typeof(EmptyTile))
                 {
                     gold.Xvalue = randomNum.Next(1, MapWidth - 1);
                     gold.Yvalue = randomNum.Next(1, MapHeight - 1);
-                } while (GameMap[gold.Xvalue,gold.Yvalue].GetType()  != typeof(EmptyTile));
+                }
                 PlaceObject(gold);
             }
-
+            #endregion
             IntializePlayerVision();
         }
 
@@ -142,6 +163,10 @@ namespace Task_1_Retry
          
             GameMap[PlayerObj.Xvalue, PlayerObj.Yvalue] = PlayerObj;
 
+            for (int a = 0; a < ItemArr.Length; a++)
+            {
+                GameMap[ItemArr[a].Xvalue, ItemArr[a].Yvalue] = ItemArr[a];
+            }
         }
 
         public void UpdateVision()
@@ -177,10 +202,13 @@ namespace Task_1_Retry
                     return PlayerObj;
                 //This will return the Hero object. (which would be the player).
 
-                case Tile.TileType.Enemey:
+                case Tile.TileType.Goblin:
                     Goblin goblin = new Goblin(randomNum.Next(1, MapWidth - 1), randomNum.Next(1, MapHeight - 1));
                     //this pathway will return the enemy, which is the Goblin from the Goblin class.
                     return goblin;
+                case Tile.TileType.Mage:
+                    Mage mage = new Mage(randomNum.Next(1, MapWidth - 1), randomNum.Next(1, MapHeight - 1));
+                    return mage;
                 case Tile.TileType.Gold:
                     Gold gold = new Gold(randomNum.Next(1,MapWidth-1),randomNum.Next(1,MapHeight-1));
                     return gold;
