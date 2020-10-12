@@ -115,7 +115,12 @@ namespace Task_1_Retry
                 );
             foreach (var gold in ItemList)
             {
-
+                while (GameMap[gold.Xvalue, gold.Yvalue].GetType() != typeof(EmptyTile))
+                {
+                    gold.Xvalue = randomNum.Next(1, MapWidth - 1);
+                    gold.Yvalue = randomNum.Next(1, MapHeight - 1);
+                }
+                PlaceObject(gold);
             }
 
             #endregion
@@ -159,10 +164,11 @@ namespace Task_1_Retry
                 GameMap[EnemeyArray[i].Xvalue, EnemeyArray[i].Yvalue] = EnemeyArray[i];
             }
 
-            for (int a = 0; a < ItemArr.Length; a++)
+            foreach (var gold in ItemList)
             {
-                GameMap[ItemArr[a].Xvalue, ItemArr[a].Yvalue] = ItemArr[a];
+                GameMap[gold.Xvalue, gold.Yvalue] = gold;
             }
+          
             GameMap[PlayerObj.Xvalue, PlayerObj.Yvalue] = PlayerObj;
         }
 
@@ -226,16 +232,20 @@ namespace Task_1_Retry
         {
             Item localitem;
             localitem = null;
-            for (int a = 0; a < ItemArr.Length; a++)
+            foreach (var gold in ItemList.ToList())
             {
-                if (ItemArr[a].Xvalue == x && ItemArr[a].Yvalue == y)    //check to see if the item is at that location 
+                if (gold.Xvalue ==x && gold.Yvalue == y)
                 {
-                    localitem = ItemArr[a];
-                    ItemArr[a] = null;  //makes the item in that position null in the array
+                    localitem = gold;
+
+                    Console.WriteLine(ItemList.IndexOf(localitem));
+                    int w = Convert.ToInt32( Console.ReadLine());
+
+                    ItemList.RemoveAt(w);
                 }
             }
-            return localitem; // returns the item if true or returns null if there is no item found at that location 
-
+            return localitem;
+          
         }
 
     }
