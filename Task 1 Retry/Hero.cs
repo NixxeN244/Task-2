@@ -26,7 +26,7 @@ namespace Task_1_Retry
                     return Movement.No_movement;
 
                 case Movement.Up:
-                    if (char_vision[4].GetType() == typeof(EmptyTile) | char_vision[4].GetType() == typeof(Item))
+                    if (char_vision[4].GetType() == typeof(EmptyTile) | char_vision[4].GetType() == typeof(Gold))
                     {
                         return Movement.Up;
                     }
@@ -37,7 +37,7 @@ namespace Task_1_Retry
 
 
                 case Movement.Down:
-                    if (char_vision[2].GetType() == typeof(EmptyTile) | char_vision[2].GetType() == typeof(Item))
+                    if (char_vision[2].GetType() == typeof(EmptyTile) | char_vision[2].GetType() == typeof(Gold))
                     {
                         return Movement.Down;
                     }
@@ -47,7 +47,7 @@ namespace Task_1_Retry
                     }
 
                 case Movement.Left:
-                    if (char_vision[3].GetType() == typeof(EmptyTile) | char_vision[3].GetType() == typeof(Item))
+                    if (char_vision[3].GetType() == typeof(EmptyTile) | char_vision[3].GetType() == typeof(Gold))
                     {
                         return Movement.Left;
                     }
@@ -57,7 +57,7 @@ namespace Task_1_Retry
                     }
 
                 case Movement.Right:
-                    if (char_vision[1].GetType() == typeof(EmptyTile) | char_vision[1].GetType()==typeof(Item))
+                    if (char_vision[1].GetType() == typeof(EmptyTile) | char_vision[1].GetType()==typeof(Gold))
                     {
                         return Movement.Right;
                     }

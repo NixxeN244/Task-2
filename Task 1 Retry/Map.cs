@@ -22,7 +22,7 @@ namespace Task_1_Retry
 
         public int MapWidth { get; set; }
         public int MapHeight { get; set; }
-        public Item[] ItemArr { get; set; }
+        public List<Item> ItemList { get; set; }
 
 
 
@@ -32,7 +32,7 @@ namespace Task_1_Retry
             MapHeight = randomNum.Next(minheight, maxheight);
             GameMap = new Tile[MapWidth, MapHeight];
             EnemeyArray = new Enemy[numofenemies];
-            ItemArr = new Item[numofgold];
+            ItemList = new List<Item>(3);
             #region Game Map empty tiles and Obsatcle Tiles
             for (int i = 0; i < GameMap.GetLength(0); i++)  //Creating of empty tiles so that TIles exisit within the class
             {
@@ -106,20 +106,18 @@ namespace Task_1_Retry
             }
             #endregion
             #region Creation of the gold in Items Array and placing them 
-            for (int i = 0; i < ItemArr.Length; i++)
+            ItemList.AddRange(new List<Item>
             {
-                ItemArr[i] = (Item)Create(Tile.TileType.Gold);
+                new Gold(randomNum.Next(1, MapWidth - 1), randomNum.Next(1, MapHeight - 1)),
+                new Gold(randomNum.Next(1, MapWidth - 1), randomNum.Next(1, MapHeight - 1)),
+                new Gold(randomNum.Next(1, MapWidth - 1), randomNum.Next(1, MapHeight - 1)),
+            }
+                );
+            foreach (var gold in ItemList)
+            {
+
             }
 
-            foreach (var gold in ItemArr)
-            {
-                while (GameMap[gold.Xvalue, gold.Yvalue].GetType() != typeof(EmptyTile))
-                {
-                    gold.Xvalue = randomNum.Next(1, MapWidth - 1);
-                    gold.Yvalue = randomNum.Next(1, MapHeight - 1);
-                }
-                PlaceObject(gold);
-            }
             #endregion
             IntializePlayerVision();
         }
@@ -161,12 +159,11 @@ namespace Task_1_Retry
                 GameMap[EnemeyArray[i].Xvalue, EnemeyArray[i].Yvalue] = EnemeyArray[i];
             }
 
-            GameMap[PlayerObj.Xvalue, PlayerObj.Yvalue] = PlayerObj;
-
             for (int a = 0; a < ItemArr.Length; a++)
             {
                 GameMap[ItemArr[a].Xvalue, ItemArr[a].Yvalue] = ItemArr[a];
             }
+            GameMap[PlayerObj.Xvalue, PlayerObj.Yvalue] = PlayerObj;
         }
 
         public void UpdateVision()
@@ -231,7 +228,7 @@ namespace Task_1_Retry
             localitem = null;
             for (int a = 0; a < ItemArr.Length; a++)
             {
-                if (ItemArr[a].Xvalue == x && ItemArr[a].Yvalue ==y)    //check to see if the item is at that location 
+                if (ItemArr[a].Xvalue == x && ItemArr[a].Yvalue == y)    //check to see if the item is at that location 
                 {
                     localitem = ItemArr[a];
                     ItemArr[a] = null;  //makes the item in that position null in the array
